@@ -1,0 +1,14 @@
+body {
+  background: $color-bg-gradient-end;
+}
+
+section {
+ margin: 50px;
+}
+
+@media (max-width: 768px) {
+
+  section {
+    margin: 20px;
+  }
+}

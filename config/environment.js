@@ -1,5 +1,7 @@
-/* jshint node: true */
-
+/* eslint-env node */
+/* eslint-env es6:false */
+/* eslint no-var:0 */
+/* eslint object-shorthand:0 */
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-quiz',
@@ -39,8 +41,18 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    //no-op
   }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-inline'",
+    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+    'font-src': "'self' fonts.gstatic.com",
+    'connect-src': "'self'",
+    'img-src': "'self' data:",
+    'media-src': "'self'"
+  };
 
   return ENV;
 };
