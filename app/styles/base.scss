@@ -6,7 +6,7 @@ section {
  margin: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $page-xs) {
 
   section {
     margin: 20px;
