@@ -12,12 +12,6 @@ var appScssSources = new Funnel('.', {
   destDir: '/scss'
 });
 
-var dataSources = new Funnel('.', {
-  srcDir: '/app/csv',
-  include: ['**/*.csv'],
-  destDir: '/csv'
-});
-
 var podStylesScss = new Funnel('.', {
   srcDir: '/tmp',
   include: ['pod-styles.scss'],
@@ -34,14 +28,12 @@ module.exports = function(defaults) {
       includePolyfill: true
     },
     svg: {
-      paths: [
-      'app/svgs'
-      ]
+      paths: ['app/svgs']
     }
   });
 
   if (app.env !== 'development') {
-    return app.toTree(new MergeTrees([appScssSources, podStylesScss, dataSources]));
+    return app.toTree(new MergeTrees([appScssSources, podStylesScss]));
   } else {
     return app.toTree();
   }

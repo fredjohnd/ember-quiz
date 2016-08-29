@@ -1,4 +1,4 @@
-<button {{action attrs.pickAnswer answer}}
-  class="button button-{{index}} {{buttonClasses}}" disabled={{chosenAnswer}}>
+<button {{action 'pickAnswer' answer}}
+  class="button button-{{index}} {{buttonClasses}}" disabled={{disabled}}>
   <span>{{index-to-alphabet index}}</span>{{answer}}
 </button>

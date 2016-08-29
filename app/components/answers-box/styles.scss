@@ -11,7 +11,7 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.button:not(.button-correct):not(.button-incorrect):not([disabled]):hover {
+.button:not(.button-correct):not(.button-incorrect):not(.button-pending):not([disabled]):hover {
   color:#fff;
   background: linear-gradient(to bottom, #767676 0%, #979797 100%);
 }
@@ -40,6 +40,10 @@
 
 .button-incorrect {
   background: linear-gradient(to bottom,  #db0c0c 0%,#bb0c0c 100%);
+}
+
+.button-pending {
+  background: blue;
 }
 
 

@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   answers: [],
   correctAnswer: null,
   chosenAnswer: null,
+  disabled: false,
 
   randomizedAnswers: Ember.computed('answers', function() {
     let i = 0;
