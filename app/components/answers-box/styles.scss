@@ -12,8 +12,7 @@
 }
 
 .button:not(.button-correct):not(.button-incorrect):not(.button-pending):not([disabled]):hover {
-  color:#fff;
-  background: linear-gradient(to bottom, #767676 0%, #979797 100%);
+  background: #396ea6;
 }
 
 .button-0, .button-2 {
@@ -43,7 +42,7 @@
 }
 
 .button-pending {
-  background: blue;
+  background: #3481d1;
   animation: pulse .8s linear infinite;
 }
 
