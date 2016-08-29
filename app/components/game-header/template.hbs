@@ -1,7 +1,7 @@
   <div class="container">
     <div class="row">
-    <div class="col-xs-4 text-left left-block">
-        <p class="question-counter">{{currentQuestionIndex}} / <span>{{questionCount}}</span></p>
+      <div class="col-xs-4 text-left left-block">
+        <p class="question-counter">{{currentQuestionIndex}} / <span class="total-questions">{{questionCount}}</span></p>
         <p class="question-label">Questions</p>
       </div>
 
@@ -10,9 +10,10 @@
       </div>
 
       <div class="col-xs-4 text-right right-block">
-
-        <span class="icon">{{inline-svg 'arrow-right.svg' class="next-question-icon"}}</span>
-        <span class="next-label" {{action 'nextQuestion'}}>Next question</span>
+      <a class="next-question" {{action 'nextQuestion'}}>
+          <span class="next-question-icon">{{inline-svg 'arrow-right.svg'}}</span>
+          Next question
+        </a>
       </div>
     </div>
   </div>

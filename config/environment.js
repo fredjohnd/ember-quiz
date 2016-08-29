@@ -41,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    //no-op
+    ENV.rootURL = '/ember-quiz-demo';
   }
 
   ENV.contentSecurityPolicy = {
