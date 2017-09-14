@@ -6,7 +6,8 @@ export default Ember.Component.extend({
 
   index: 0,
   questionCount: 0,
-
+  canContinue: false,
+  
   currentQuestionIndex: Ember.computed('index', function() {
     return this.get('index') + 1;
   }),

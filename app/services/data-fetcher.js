@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import CONFIG from '../config/environment';
 
 export default Ember.Service.extend({
   store: Ember.inject.service(),
@@ -7,9 +8,9 @@ export default Ember.Service.extend({
 
     return new Promise((resolve, reject) => {
       Ember.$.ajax({
-        url: 'csv/level1.csv',
+        url: `${CONFIG.API.endpoint}/api.php?amount=10&encode=base64`,
         success: ((result) => {
-          let results = this._normalizeResults(result);
+          let results = this._normalizeResults(result.results);
           if (results.length) resolve(results);
           else reject(results);
         }),
@@ -21,19 +22,15 @@ export default Ember.Service.extend({
   },
 
   _normalizeResults(results) {
-    let data = results.split('\n');
-    return data.reduce((memo, line) => {
-      let data = line.split(',');
-      let size = data.length;
-      if (size < 4) return memo;
-      let questionRangeEnd = size - 4;
-      let question = {
-        question: data.slice(0, questionRangeEnd).join(),
-        answers: data.slice(questionRangeEnd, data.length),
-        correct: data[questionRangeEnd]
+    return results.map((question) => {
+      let answers = question.incorrect_answers.map(a => atob(a));
+      let correct = atob(question.correct_answer);
+      answers.push(correct);
+      return {
+        question: atob(question.question),
+        answers: answers,
+        correct: correct
       };
-      memo.pushObject(question);
-      return memo;
-    }, []);
+    });
   }
 });

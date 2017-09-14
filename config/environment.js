@@ -15,6 +15,10 @@ module.exports = function(environment) {
       }
     },
 
+    API: {
+      endpoint: 'https://opentdb.com'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

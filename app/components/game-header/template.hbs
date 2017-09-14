@@ -10,10 +10,12 @@
       </div>
 
       <div class="col-xs-4 text-right right-block">
-      <a class="next-question" {{action 'nextQuestion'}}>
+        {{#if canContinue}}
+        <a class="next-question" {{action 'nextQuestion'}}>
           <span class="next-question-icon">{{inline-svg 'arrow-right.svg'}}</span>
           Next question
         </a>
+        {{/if}}
       </div>
     </div>
   </div>
