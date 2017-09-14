@@ -24,7 +24,7 @@ module.exports = function(defaults) {
     'ember-cli-qunit': {
       useLintTree: false
     },
-    babel: {
+    'ember-cli-babel': {
       includePolyfill: true
     },
     svg: {
