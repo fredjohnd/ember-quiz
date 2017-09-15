@@ -7,7 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('game', {path: '/'}, function() {
+  this.route('main', {path: '/'});
+  
+  this.route('game',  {path: 'play'}, function() {
+    this.route('index', {path: '/'});
   });
 });
 
