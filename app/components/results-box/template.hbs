@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{grade}}</h1>
+        <h2>{{percentageCorrect}}%</h2>
+    </div>
+
+    <div class="col-xs-12">
+        {{#each model as |result|}}
+            <p class="result-item {{if result.isCorrect 'bg-success' 'bg-danger'}}">{{result.question}} - {{result.answer}} {{#unless result.isCorrect}} | <b>Correct answer: {{result.correctAnswer}}</b>{{/unless}}</p>
+        {{/each}}
+    </div>
+</div>
