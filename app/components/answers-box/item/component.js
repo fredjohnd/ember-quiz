@@ -2,14 +2,26 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  questionIndex: 0,
+  _oldQuestionIndex: 0,
+
   answer: '',
   chosenAnswer: null,
   correctAnswer: null,
   isClickedOn: false,
-
   disabled: false,
 
-  buttonClasses: Ember.computed('chosenAnswer', 'isClickedOn', function() {
+  didReceiveAttrs() {
+    let _oldQuestionIndex = this.get('_oldQuestionIndex');
+    let questionIndex = this.get('questionIndex');
+    if (_oldQuestionIndex !== questionIndex) {
+      this.set('isClickedOn', false);
+    }
+
+    this.set('_oldQuestionIndex', questionIndex);
+  },
+
+  buttonClasses: Ember.computed('questionIndex', 'chosenAnswer', 'isClickedOn', function() {
     let chosen = this.get('chosenAnswer');
     if (this.get('isClickedOn') && !chosen) return 'button-pending';
     if (!chosen) return '';

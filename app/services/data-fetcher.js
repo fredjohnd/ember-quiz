@@ -4,11 +4,10 @@ import CONFIG from '../config/environment';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
 
-  fetch() {
-
+  fetch({difficulty}) {
     return new Promise((resolve, reject) => {
       Ember.$.ajax({
-        url: `${CONFIG.API.endpoint}/api.php?amount=10&encode=base64`,
+        url: `${CONFIG.API.endpoint}/api.php?amount=10&encode=base64&difficulty=${difficulty}`,
         success: ((result) => {
           let results = this._normalizeResults(result.results);
           if (results.length) resolve(results);

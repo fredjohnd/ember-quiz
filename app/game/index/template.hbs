@@ -8,16 +8,23 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        {{question-box question=currentQuestion}}
 
-        {{answers-box
+        {{#if (and (eq questionIndex lastQuestionIndex) chosenAnswer)}}
+          {{results-box model=results}}
+        {{else}}
+          {{question-box question=currentQuestion}}
+
+          {{answers-box
           answers=currentAnswers
           correctAnswer=correctAnswer
           chosenAnswer=chosenAnswer
           disabled=disableButtons
+          questionIndex=questionIndex
           pickAnswer=(action 'pickAnswer')}}
+
+        {{/if}}
       </div>
     </div>
   </div>
 </section>
-{{footer-container}}
+{{footer-container startNewGame=(route-action 'startNewGame')}}
