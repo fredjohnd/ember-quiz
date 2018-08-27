@@ -1,6 +1,0 @@
-{
-  "name": "ember-quiz",
-  "dependencies": {
-    "matchMedia": "0.2.0"
-  }
-}
