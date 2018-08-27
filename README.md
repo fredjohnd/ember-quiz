@@ -1,3 +1,5 @@
+A simple quiz application/game made in Ember. Uses opentdb API for questions and answers: App Demo: https://fredjohnd.github.io/ember-quiz
+
 # Ember-quiz
 
 This README outlines the details of collaborating on this Ember application.
